@@ -60,6 +60,33 @@ fn get_candidate_locations() -> Vec<PathBuf> {
     }
 }
 
+#[cfg(target_os = "freebsd")]
+fn get_candidate_locations() -> Vec<PathBuf> {
+    use std::io::{BufRead, BufReader};
+
+    fn query_sysconfig() -> Result<PathBuf, Error> {
+        let result = std::process::Command::new("python3")
+            .arg("-c")
+            .arg("import sysconfig; print(sysconfig.get_config_var('INSTSONAME'))")
+            .output()?;
+        if !result.status.success() {
+            return Err(format!("python exit code: {:?}", result.status.code()).into());
+        }
+        let stdout = BufReader::new(&result.stdout[..]);
+        let mut lines = stdout.lines();
+        let path = PathBuf::from(lines.next().unwrap()?);
+        Ok(path)
+    }
+
+    match query_sysconfig() {
+        Ok(path) => vec![path],
+        Err(err) => {
+            eprintln!("{}", err);
+            vec![]
+        }
+    }
+}
+
 #[cfg(target_os = "macos")]
 fn get_candidate_locations() -> Vec<PathBuf> {
     use std::io::{BufRead, BufReader};

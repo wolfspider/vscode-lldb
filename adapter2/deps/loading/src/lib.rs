@@ -15,10 +15,19 @@ mod platform {
     pub const DYLIB_PREFIX: &str = "lib";
     #[cfg(target_os = "linux")]
     pub const DYLIB_EXTENSION: &str = "so";
+    #[cfg(target_os = "freebsd")]
+    pub const DYLIB_EXTENSION: &str = "so";
     #[cfg(target_os = "macos")]
     pub const DYLIB_EXTENSION: &str = "dylib";
 
     #[cfg(target_os = "linux")]
+    mod constants {
+        use super::*;
+        pub const RTLD_LAZY: c_int = 0x1;
+        pub const RTLD_GLOBAL: c_int = 0x100;
+        pub const RTLD_DEFAULT: Handle = 0 as Handle;
+    }
+    #[cfg(target_os = "freebsd")]
     mod constants {
         use super::*;
         pub const RTLD_LAZY: c_int = 0x1;

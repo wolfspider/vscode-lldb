@@ -16,7 +16,18 @@ use std::slice;
 use std::str;
 
 cpp! {{
-    #include <lldb/API/LLDB.h>
+    #define _USE_MATH_DEFINES
+    #include <math.h>
+    #include "lldb/API/header.h"
+    #include <map>
+    #include <iostream>
+
+    int global_int;
+
+}}
+
+cpp! {{
+    #include "lldb/API/LLDB.h"
     using namespace lldb;
 }}
 

@@ -15,6 +15,10 @@ fn main() {
         } else if target_os == "macos" {
             println!("cargo:rustc-cdylib-link-arg=-undefined");
             println!("cargo:rustc-cdylib-link-arg=dynamic_lookup");
+        } else if target_os == "freebsd" {
+            println!("cargo:rustc-cdylib-link-arg=-Wl,-Bstatic");
+            println!("cargo:rustc-cdylib-link-arg=-stdlib=libc++");
+            println!("cargo:rustc-cdylib-link-arg=-Wl,-Bdynamic");
         }
     }
 }

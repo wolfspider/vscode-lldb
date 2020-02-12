@@ -1,7 +1,7 @@
 {
 	"name": "vscode-lldb",
 	"displayName": "CodeLLDB",
-	"version": "@VERSION@",
+	"version": "1.0.0",
 	"publisher": "vadimcn",
 	"description": "Native debugger based on LLDB.",
 	"license": "MIT",
@@ -390,22 +390,54 @@
 			}
 		},
 		"breakpoints": [
-			{ "language": "ada" },
-			{ "language": "arm" },
-			{ "language": "asm" },
-			{ "language": "c" },
-			{ "language": "cpp" },
-			{ "language": "crystal" },
-			{ "language": "d" },
-			{ "language": "fortran" },
-			{ "language": "fortran-modern" },
-			{ "language": "lldb.disassembly" },
-			{ "language": "nim" },
-			{ "language": "objective-c" },
-			{ "language": "objectpascal" },
-			{ "language": "pascal" },
-			{ "language": "rust" },
-			{ "language": "swift" }
+			{
+				"language": "ada"
+			},
+			{
+				"language": "arm"
+			},
+			{
+				"language": "asm"
+			},
+			{
+				"language": "c"
+			},
+			{
+				"language": "cpp"
+			},
+			{
+				"language": "crystal"
+			},
+			{
+				"language": "d"
+			},
+			{
+				"language": "fortran"
+			},
+			{
+				"language": "fortran-modern"
+			},
+			{
+				"language": "lldb.disassembly"
+			},
+			{
+				"language": "nim"
+			},
+			{
+				"language": "objective-c"
+			},
+			{
+				"language": "objectpascal"
+			},
+			{
+				"language": "pascal"
+			},
+			{
+				"language": "rust"
+			},
+			{
+				"language": "swift"
+			}
 		],
 		"debuggers": [
 			{
