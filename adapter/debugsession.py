@@ -438,7 +438,7 @@ class DebugSession:
                 bp = self.target.FindBreakpointByID(bp_id)
                 bp_resp = { 'id': bp_id, 'verified': True }
             else:  # New breakpoint
-                bp = self.target.BreakpointCreateByLocation(to_lldb_str(file_path), line)
+                bp = self.target.BreakpointCreateByLocation(to_lldb_str(file_name), line)
                 bp_id = bp.GetID()
                 bp_info = BreakpointInfo(bp_id, SOURCE)
                 bp_info.file_path = file_path
