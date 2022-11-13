@@ -50,7 +50,7 @@
 		"vscode-debugadapter-testsupport": "^1.35.0",
 		"vsce": "^1.62.0",
 		"webpack": "^4.39.1",
-		"webpack-cli": "^3.3.7",
+		"webpack-cli": "^3.3.12",
 		"ts-loader": "^6.0.4"
 	},
 	"scripts": {
